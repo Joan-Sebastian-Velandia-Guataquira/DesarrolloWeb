@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EyesComponent } from '../produts/eyes/eyes.component';
+import { LipsComponent } from '../produts/lips/lips.component';
+import { LoginComponent } from './login/login.component';
 import { VisitorComponent } from './visitor.component';
 
 const routes: Routes = [
@@ -7,7 +10,22 @@ const routes: Routes = [
     path: '',
     component: VisitorComponent,
     children: [
-
+      {
+        path: 'eyes',
+        component: EyesComponent
+      },
+      {
+        path: 'lips',
+        component: LipsComponent
+      },
+      {
+        path: 'home',
+        redirectTo: ''
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      }
     ]
   }
 ];

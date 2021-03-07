@@ -1,13 +1,16 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { EyesComponent } from './produts/eyes/eyes.component';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/visitor',
+    pathMatch: 'full'
+  },
+  {
+    path: 'visitor',
     loadChildren: () =>
-      import('./visitor/visitor.module').then((m) => m.VisitorModule),
+    import('./visitor/visitor.module').then((m) => m.VisitorModule),
   },
   {
     path: 'admin',
