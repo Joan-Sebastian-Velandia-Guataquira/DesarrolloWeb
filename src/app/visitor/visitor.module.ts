@@ -14,9 +14,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuComponent } from './menu/menu.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
-  declarations: [HeaderComponent, VisitorComponent, LoginComponent],
+  declarations: [HeaderComponent, VisitorComponent, LoginComponent, MenuComponent, ContentComponent],
   imports: [
     CommonModule,
     VisitorRoutingModule,
