@@ -15,6 +15,10 @@ const routes: Routes = [
         component: EyesComponent
       },
       {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
         path: 'lips',
         component: LipsComponent
       },
@@ -22,10 +26,6 @@ const routes: Routes = [
         path: 'home',
         redirectTo: ''
       },
-      {
-        path: 'login',
-        component: LoginComponent
-      }
     ]
   }
 ];
