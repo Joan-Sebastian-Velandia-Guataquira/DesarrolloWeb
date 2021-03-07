@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EyesComponent } from '../produts/eyes/eyes.component';
-import { LipsComponent } from '../produts/lips/lips.component';
+import { FaceComponent } from '../products/face/face.component';
+import { EyesComponent } from '../products/eyes/eyes.component';
+import { LipsComponent } from '../products/lips/lips.component';
 import { LoginComponent } from './login/login.component';
 import { VisitorComponent } from './visitor.component';
 
@@ -26,6 +27,14 @@ const routes: Routes = [
         path: 'home',
         redirectTo: ''
       },
+      {
+        path: 'face',
+        component: FaceComponent
+      },
+      {
+        path: '**',
+        redirectTo: ''
+      }
     ]
   }
 ];

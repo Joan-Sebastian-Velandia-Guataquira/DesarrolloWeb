@@ -8,6 +8,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'visitor/*',
+    redirectTo: '/visitor',
+    pathMatch: 'full'
+  },
+  {
     path: 'visitor',
     loadChildren: () =>
     import('./visitor/visitor.module').then((m) => m.VisitorModule),
@@ -22,6 +27,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./client/client.module').then((m) => m.ClientModule),
   },
+  {
+    path: '**',
+    redirectTo: '/visitor'
+  }
 ];
 
 @NgModule({

@@ -33,7 +33,7 @@ body {
 .wrapper:before,
 .wrapper:after {
   content: " ";
-  display: table;
+  display: table;i
 }
 .wrapper:after {
   clear: both;
@@ -478,7 +478,7 @@ a:focus {
 .user-panel > .info {
   padding: 5px 5px 5px 15px;
   line-height: 1;
-  position: absolute;
+  position: bottom;
   left: 55px;
 }
 .user-panel > .info > p {
@@ -491,6 +491,7 @@ a:focus {
   margin-top: 3px;
   font-size: 11px;
 }
+
 .user-panel > .info > a > .fa,
 .user-panel > .info > a > .ion,
 .user-panel > .info > a > .glyphicon {
