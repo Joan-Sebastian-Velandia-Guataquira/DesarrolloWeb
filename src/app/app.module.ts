@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LipsComponent } from './products/lips/lips.component';
 import { EyesComponent } from './products/eyes/eyes.component';
+import { FaceComponent } from './products/face/face.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EyesComponent,
+    FaceComponent,
+    LipsComponent
   ],
   imports: [
     BrowserModule,

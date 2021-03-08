@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/core/models/product/product.model';
+import {LocalStorageService } from './../../core/services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-lips',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LipsComponent implements OnInit {
 
-  constructor() { }
+  lipsProducts: Product[] = [];
+
+  constructor( private localStorage: LocalStorageService
+    ) { }
 
   ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void
+  {
+    this.lipsProducts = this.localStorage.getLipsProducts();
   }
 
 }

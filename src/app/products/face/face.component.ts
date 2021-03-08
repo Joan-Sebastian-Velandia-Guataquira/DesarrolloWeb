@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/core/models/product/product.model';
+import {LocalStorageService } from './../../core/services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-face',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaceComponent implements OnInit {
 
-  constructor() { }
+  faceProducts: Product[] = [];
+
+  constructor(private localStorage: LocalStorageService) {
+  }
 
   ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void
+  {
+    this.faceProducts = this.localStorage.getFaceProducts();
   }
 
 }

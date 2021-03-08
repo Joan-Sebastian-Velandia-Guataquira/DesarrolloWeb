@@ -28,8 +28,8 @@ import { FooterComponent } from './footer/footer.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
 })
 export class VisitorModule {}
