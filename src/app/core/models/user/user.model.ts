@@ -1,7 +1,5 @@
-export class User {
-  constructor(
-    private nickName: string,
-    private password: string,
-    private rol: boolean,
-  ){}
+export interface User {
+    nickName: string;
+    password: string;
+    rol: boolean;
 }

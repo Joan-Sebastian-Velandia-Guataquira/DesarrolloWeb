@@ -7,8 +7,8 @@
       <div class="emailInput">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Nombre de usuario</mat-label>
-          <input formControlName="email" matInput placeholder="Ingrese un nombre de usuario" required />
-          <mat-error *ngIf="!loginForm.controls['email'].valid">
+          <input formControlName="nickname" matInput placeholder="Ingrese un nombre de usuario" required />
+          <mat-error *ngIf="!loginForm.controls['nickname'].valid">
             Usuario requerido
           </mat-error>
         </mat-form-field>
@@ -28,11 +28,11 @@
             </mat-icon>
           </button>
           <mat-error *ngIf="!loginForm.controls['password'].valid">
-            contraseña requerida
+            Contraseña requerida
           </mat-error>
         </mat-form-field>
       </div>
-      <button mat-flat-button color="primary">Iniciar sesión</button>
+        <button mat-flat-button color="primary">Iniciar sesión</button>
     </form>
 
     <div class="button-row">

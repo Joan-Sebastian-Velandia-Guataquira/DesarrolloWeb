@@ -1,1 +1,24 @@
-<p>menu works!</p>
+<aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+            <div class="image">
+                <img src="./../../../assets/images/user 1.png" class="img-circle" alt="User Image" style="align-items: center">
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li><a [routerLink]="['/client/face']" ><i class="fa fa-user"></i> <span>Rostro</span></a></li>
+            <li><a [routerLink]="['/client/eyes']"><i class="fa fa-eye"></i> <span>Ojos</span></a></li>
+            <li><a [routerLink]="['/client/lips']"><i class="fa fa-heart"></i> <span>Labios</span></a></li>
+            <li><a [routerLink]="['/client/cart']"><i class="fa fa-shopping-cart"></i> <span>Carrito de compras</span></a></li>
+            <li><a [routerLink]="['/client/orders']"><i class="fa fa-clipboard-check"></i> <span>Pedidos</span></a></li>
+        </ul>
+        <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>

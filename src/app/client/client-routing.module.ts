@@ -9,6 +9,10 @@ const routes: Routes = [
     path: '',
     component: ClientComponent,
     children: [
+      /* {
+        path: '/client/:id',
+        component: ClientComponent,
+      } */
     ]
   }
 ];

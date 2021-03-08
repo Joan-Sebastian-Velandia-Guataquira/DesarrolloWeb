@@ -5,13 +5,21 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { ReportsComponent } from './reports/reports.component';
 import { HeaderComponent } from './header/header.component';
 import { AdminComponent } from './admin.component';
+import { LogoutComponent } from './logout/logout.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
+import { CrudComponent } from './crud/crud.component';
 
 
 @NgModule({
   declarations: [
     ReportsComponent,
     HeaderComponent,
-    AdminComponent
+    AdminComponent,
+    LogoutComponent,
+    MenuComponent,
+    FooterComponent,
+    CrudComponent
     ],
   imports: [
     CommonModule,
