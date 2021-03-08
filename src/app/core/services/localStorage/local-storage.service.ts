@@ -4,6 +4,7 @@ import { Product } from '../../models/product/product.model';
 import dataEyes from './../../../files/eyes.json';
 import dataLips from './../../../files/lips.json';
 import dataFace from './../../../files/face.json';
+import dataUser from './../../../files/users.json';
 import { User } from '../../models/user/user.model';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class LocalStorageService {
   lipsProducts: Product[] = [];
   faceProducts: Product[] = [];
   eyesProducts: Product[] = [];
+  users: User[] = [];
 
   currentUser = 'CURRENT_USER';
   objectKey: any;
@@ -55,6 +57,15 @@ export class LocalStorageService {
       this.loadJsonFile();
     }
     return this.faceProducts;
+  }
+
+  getUsers(): User[]
+  {
+    if (this.users.length === 0 )
+    {
+      this.users = dataUser as User[];
+    }
+    return this.users;
   }
 
   setSesion(currentUser: User): void

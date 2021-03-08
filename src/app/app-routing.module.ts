@@ -18,12 +18,12 @@ const routes: Routes = [
     import('./visitor/visitor.module').then((m) => m.VisitorModule),
   },
   {
-    path: 'admin',
+    path: 'admin/:admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
   {
-    path: 'client/:user',
+    path: 'client/:client',
     loadChildren: () =>
       import('./client/client.module').then((m) => m.ClientModule),
   },

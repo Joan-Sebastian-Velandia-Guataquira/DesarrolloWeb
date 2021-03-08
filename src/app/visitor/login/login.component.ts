@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from 'src/app/core/services/users/users.service';
-import {User} from './../../core/models/user/user.model';
+import { User } from './../../core/models/user/user.model';
 
 @Component({
   selector: 'app-login',
@@ -10,40 +10,50 @@ import {User} from './../../core/models/user/user.model';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   hide: boolean = Boolean();
   currentUser!: User;
 
   constructor(
     private fb: FormBuilder,
-    private userService: UsersService,
+    private usersService: UsersService,
     private activeRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router
   ) {}
 
   loginForm: FormGroup = this.fb.group({
     nickname: ['', [Validators.required, Validators.minLength(6)]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    rol: [false]
+    password: ['', [Validators.required, Validators.minLength(5)]],
+    rol: [false],
   });
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onLogin(): void {
     if (!this.loginForm.valid) {
       return;
-    }else{
+    } else {
       const nickName = this.loginForm.controls.nickname.value;
-      const pasword = this.loginForm.controls.nickname.value;
-      const rol: boolean = this.loginForm.controls.nickname.value;
+      const pasword = this.loginForm.controls.password.value;
+      const rol: boolean = this.loginForm.controls.rol.value;
       this.currentUser = new User(nickName, pasword, rol);
-      this.userService.setSesion(this.currentUser);
-      this.setLogin();
+
+      if (this.usersService.auth(this.currentUser)) {
+        this.usersService.setSesion(this.currentUser);
+        console.log('rol ' + this.currentUser.rol);
+        if (this.currentUser.rol) {
+          this.setLoginAdmin();
+        } else {
+          this.setLoginClient();
+        }
+      } else {
+        alert('usurio no registrado');
+      }
     }
   }
-  setLogin(): void
-  {
+  setLoginClient(): void {
     this.router.navigate(['/client/' + this.currentUser.nickName]);
+  }
+  setLoginAdmin(): void {
+    this.router.navigate(['/admin/' + this.currentUser.nickName]);
   }
 }
