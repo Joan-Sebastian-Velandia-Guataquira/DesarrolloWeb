@@ -10,6 +10,7 @@ import {LocalStorageService } from './../../core/services/localStorage/local-sto
 export class EyesComponent implements OnInit {
 
   eyesProducts: Product[] = [];
+  /* *isLogin: boolean; */
 
   constructor(
     private localStorage: LocalStorageService
