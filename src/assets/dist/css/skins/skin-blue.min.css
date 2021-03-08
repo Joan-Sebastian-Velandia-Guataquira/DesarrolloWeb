@@ -11,7 +11,7 @@
 .skin-blue .main-header .navbar .nav .open > a:hover,
 .skin-blue .main-header .navbar .nav .open > a:focus,
 .skin-blue .main-header .navbar .nav > .active > a {
-  background: rgba(0, 0, 0, 0.1);
+  background:#fe6d76;
   color: #000000;
 }
 .skin-blue .main-header .navbar .sidebar-toggle {
@@ -79,20 +79,21 @@
 }
 .skin-blue .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: #2c3b41;
+  background: #ffadb3;
 }
 .skin-blue .sidebar a {
   color: #737373;
 }
 .skin-blue .sidebar a:hover {
   text-decoration: none;
+  color: #fff
 }
 .skin-blue .sidebar-menu .treeview-menu > li > a {
-  color: #706c6c;
+  color: #757575;
 }
 .skin-blue .sidebar-menu .treeview-menu > li.active > a,
 .skin-blue .sidebar-menu .treeview-menu > li > a:hover {
-  color: #fff;
+  color: #ffffff;
 }
 .skin-blue .sidebar-form {
   border-radius: 3px;

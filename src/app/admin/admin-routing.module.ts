@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReportsComponent } from './reports/reports.component';
 import { AdminComponent } from './admin.component';
 
+
 const routes: Routes = [
   {
     path: '',
