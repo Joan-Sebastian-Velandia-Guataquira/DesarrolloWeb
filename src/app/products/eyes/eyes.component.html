@@ -1,1 +1,6 @@
 <p> <b style="font-size: 50px;">eyes component works!</b></p>
+<div *ngFor="let item of eyesProducts">
+  <p>{{ item.name }}</p>
+  <img [src]="item.img" alt="">
+</div>
+
