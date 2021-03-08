@@ -34,16 +34,16 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       return;
     }else{
-      this.currentUser = this.loginForm.value as User;
+      const nickName = this.loginForm.controls.nickname.value;
+      const pasword = this.loginForm.controls.nickname.value;
+      const rol: boolean = this.loginForm.controls.nickname.value;
+      this.currentUser = new User(nickName, pasword, rol);
       this.userService.setSesion(this.currentUser);
-      console.log('login: ' + this.loginForm.value[0]);
       this.setLogin();
     }
-    console.log(this.loginForm.value);
   }
   setLogin(): void
   {
-    this.router.navigate(['/client']);
-    console.log('routing.navigate();');
+    this.router.navigate(['/client/' + this.currentUser.nickName]);
   }
 }
