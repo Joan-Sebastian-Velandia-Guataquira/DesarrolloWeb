@@ -8,7 +8,9 @@ import { AdminComponent } from './admin.component';
 import { LogoutComponent } from './logout/logout.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { CrudComponent } from './crud/crud.component';
+import { EyesComponent } from './eyes/eyes.component';
+import { FaceComponent } from './face/face.component';
+import { LipsComponent } from './lips/lips.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { CrudComponent } from './crud/crud.component';
     LogoutComponent,
     MenuComponent,
     FooterComponent,
-    CrudComponent
+    EyesComponent,
+    FaceComponent,
+    LipsComponent,
     ],
   imports: [
     CommonModule,
