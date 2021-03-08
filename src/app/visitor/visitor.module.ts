@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { SingupComponent } from './singup/singup.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppRoutingModule } from '../app-routing.module';
     LoginComponent,
     MenuComponent,
     FooterComponent,
+    SingupComponent,
   ],
   imports: [
     CommonModule,

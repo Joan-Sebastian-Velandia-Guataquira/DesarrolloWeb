@@ -5,6 +5,7 @@ import { EyesComponent } from '../products/eyes/eyes.component';
 import { LipsComponent } from '../products/lips/lips.component';
 import { LoginComponent } from './login/login.component';
 import { VisitorComponent } from './visitor.component';
+import { SingupComponent } from './singup/singup.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: SingupComponent
       },
       {
         path: 'lips',

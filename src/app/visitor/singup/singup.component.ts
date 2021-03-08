@@ -4,12 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from 'src/app/core/services/users/users.service';
 import { User } from './../../core/models/user/user.model';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-singup',
+  templateUrl: './singup.component.html',
+  styleUrls: ['./singup.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SingupComponent implements OnInit {
   hide: boolean = Boolean();
   currentUser!: User;
   loginForm: FormGroup = this.fb.group({
@@ -25,35 +26,21 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
+  ngOnInit(): void {
+  }
 
-  ngOnInit(): void {}
-
-  onLogin(): void {
+  onRegister(): void
+  {
     if (!this.loginForm.valid) {
       return;
-    } else {
+    }else
+    {
       const nickName = this.loginForm.controls.nickname.value;
       const pasword = this.loginForm.controls.password.value;
       const rol: boolean = this.loginForm.controls.rol.value;
       this.currentUser = new User(nickName, pasword, rol);
-
-      if (this.usersService.auth(this.currentUser)) {
-        this.usersService.setSesion(this.currentUser);
-        console.log('rol ' + this.currentUser.rol);
-        if (this.currentUser.rol) {
-          this.setLoginAdmin();
-        } else {
-          this.setLoginClient();
-        }
-      } else {
-        alert('usurio no registrado');
-      }
+      this.usersService.setSesion(this.currentUser);
+      this.router.navigate(['/client/' + this.currentUser.nickName]);
     }
-  }
-  setLoginClient(): void {
-    this.router.navigate(['/client/' + this.currentUser.nickName]);
-  }
-  setLoginAdmin(): void {
-    this.router.navigate(['/admin/' + this.currentUser.nickName]);
   }
 }
