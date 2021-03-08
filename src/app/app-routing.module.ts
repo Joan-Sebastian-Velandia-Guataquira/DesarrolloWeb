@@ -23,7 +23,7 @@ const routes: Routes = [
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
   {
-    path: 'client',
+    path: 'client/:user',
     loadChildren: () =>
       import('./client/client.module').then((m) => m.ClientModule),
   },
