@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { EyesComponent } from './eyes/eyes.component';
 import { FaceComponent } from './face/face.component';
 import { LipsComponent } from './lips/lips.component';
+import { AddComponent } from './add/add.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { LipsComponent } from './lips/lips.component';
     EyesComponent,
     FaceComponent,
     LipsComponent,
+    AddComponent,
     ],
   imports: [
     CommonModule,

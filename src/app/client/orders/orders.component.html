@@ -9,16 +9,14 @@
           <div class="box-body table-responsive">
             <table class="table table-bordered">
               <tr>
-                <th style="width: 20px">#</th>
-                <th>Producto</th>
                 <th>Fecha de entrega</th>
-                <th style="width: 80px"></th>
+                <th>Total</th>
+                <th style="width: 80px">Ver Detalle</th>
               </tr>
-              <tr *ngFor="let item of currentOrder.products; index as j">
-                <td>{{j}}.</td>
-                <td>{{item}}</td>
+              <tr>
                 <td>{{currentOrder.date}}</td>
-                <td><span class="badge bg-red">ver detalle</span></td>
+                <td>{{currentOrder.total | currency}}</td>
+                <td><button type="button" class="btn btn-block btn-danger" [routerLink]="['detailOrder']" >Ver</button></td>
               </tr>
             </table>
           </div>

@@ -20,9 +20,10 @@
               </span>
           </a>
                 <ul class="treeview-menu">
-                    <li><a [routerLink]="['/admin/face']"><i class="fa fa-user"></i>Rostro</a></li>
-                    <li><a [routerLink]="['/admin/eyes']"><i class="fa fa-eye"></i>Ojos</a></li>
-                    <li><a [routerLink]="['/admin/lips']"><i class="fa fa-heart"></i>Labios</a></li>
+                    <li><a [routerLink]="['face']"><i class="fa fa-user"(click)="navigateFace('face')"></i>Rostro</a></li>
+                    <li><a [routerLink]="['eyes']"><i class="fa fa-user"(click)="navigateFace('eyes')"></i>Ojos</a></li>
+                    <li><a [routerLink]="['lips']"><i class="fa fa-user"(click)="navigateFace('lips')"></i>Labios</a></li>
+
                 </ul>
             </li>
         </ul>

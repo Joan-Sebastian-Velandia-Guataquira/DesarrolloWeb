@@ -36,10 +36,6 @@ const routes: Routes = [
         path: 'face',
         component: FaceComponent
       },
-      {
-        path: '**',
-        redirectTo: ''
-      }
     ]
   }
 ];

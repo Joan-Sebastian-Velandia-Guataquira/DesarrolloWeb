@@ -4,12 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/visitor/lips',
-    pathMatch: 'full'
-  },
-  {
-    path: 'visitor',
-    redirectTo: '/visitor/lips',
+    redirectTo: '/visitor',
     pathMatch: 'full'
   },
   {
@@ -26,10 +21,6 @@ const routes: Routes = [
     path: 'client/:client',
     loadChildren: () =>
       import('./client/client.module').then((m) => m.ClientModule),
-  },
-  {
-    path: '**',
-    redirectTo: '/visitor'
   }
 ];
 

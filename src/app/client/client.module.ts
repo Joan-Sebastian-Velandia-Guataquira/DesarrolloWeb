@@ -8,14 +8,19 @@ import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
-
-
+import { DetailorderComponent } from './detailOrder/detailorder.component';
 
 @NgModule({
-  declarations: [ClientComponent, HeaderComponent, MenuComponent, FooterComponent, LogoutComponent, CartComponent, OrdersComponent],
-  imports: [
-    ClientRoutingModule,
-    CommonModule
-  ]
+  declarations: [
+    ClientComponent,
+    HeaderComponent,
+    MenuComponent,
+    FooterComponent,
+    LogoutComponent,
+    CartComponent,
+    OrdersComponent,
+    DetailorderComponent,
+  ],
+  imports: [ClientRoutingModule, CommonModule],
 })
-export class ClientModule { }
+export class ClientModule {}

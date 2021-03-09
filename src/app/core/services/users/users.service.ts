@@ -15,22 +15,19 @@ export class UsersService {
     this.localStorage.setSesion(currentUser);
   }
 
-  auth(user: User): boolean {
+  auth(user: string, password: string): any{
     if (this.users.length === 0) {
       this.loardUsers();
     }
     for (const currentUser of this.users) {
-      console.log(currentUser.nickName + ' '  + user.nickName);
-      console.log(currentUser.password + ' '  + user.password);
       if (
-        currentUser.nickName === user.nickName &&
-        currentUser.password === user.password
+        currentUser.nickName === user &&
+        currentUser.password === password
       ) {
-        return true;
+        return currentUser;
       }
     }
-
-    return false;
+    return null;
   }
 
   loardUsers(): any {

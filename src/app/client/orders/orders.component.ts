@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Order } from 'src/app/core/models/order/order.model';
 import { User } from 'src/app/core/models/user/user.model';
 import { LocalStorageService } from 'src/app/core/services/localStorage/local-storage.service';
@@ -15,7 +16,8 @@ export class OrdersComponent implements OnInit {
   orders: Order[] = [];
   constructor(
     private ordersService: OrdersService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,4 +25,9 @@ export class OrdersComponent implements OnInit {
     this.orders = this.ordersService.getOrders(this.user);
   }
 
+  detailOrderNavigate(currentOrder: number): void
+  {
+    const rou = '/' + currentOrder;
+    this.route.navigate([rou]);
+  }
 }

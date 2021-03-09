@@ -7,6 +7,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ClientComponent } from './client.component';
+import { DetailorderComponent } from './detailOrder/detailorder.component';
 
 
 
@@ -15,7 +16,6 @@ const routes: Routes = [
     path: '',
     component: ClientComponent,
     children: [
-
       {
         path: 'eyes',
         component: EyesComponent
@@ -45,9 +45,9 @@ const routes: Routes = [
         component: OrdersComponent
       },
       {
-        path: '**',
-        redirectTo: ''
-      },
+        path: 'detailOrder',
+        component: DetailorderComponent
+      }
     ]
   }
 ];

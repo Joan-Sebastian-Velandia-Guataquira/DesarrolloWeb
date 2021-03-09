@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = this.fb.group({
     nickname: ['', [Validators.required, Validators.minLength(6)]],
     password: ['', [Validators.required, Validators.minLength(5)]],
-    rol: [false],
+    rol: [''],
   });
 
   constructor(
@@ -34,10 +34,8 @@ export class LoginComponent implements OnInit {
     } else {
       const nickName = this.loginForm.controls.nickname.value;
       const pasword = this.loginForm.controls.password.value;
-      const rol: boolean = this.loginForm.controls.rol.value;
-      this.currentUser = new User(nickName, pasword, rol);
-
-      if (this.usersService.auth(this.currentUser)) {
+      if (this.usersService.auth(nickName, pasword) !== null) {
+        this.currentUser = this.usersService.auth(nickName, pasword);
         this.usersService.setSesion(this.currentUser);
         console.log('rol ' + this.currentUser.rol);
         if (this.currentUser.rol) {
