@@ -1,0 +1,32 @@
+<div class="box">
+    <div class="box-header with-border">
+        <h3>Crear Producto</h3>
+        <div [hidden]="submitted">
+            <form (ngSubmit)="onSubmit()">
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-id-card-alt"></i></span>
+                    <input type="text" class="form-control" id="identificacion" required [(ngModel)]="user.identificacion" name="identificacion" placeholder="Identificación">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-file-signature"></i></span>
+                    <input type="text" class="form-control" id="nombre" required [(ngModel)]="user.nombre" name="nombre" placeholder="Nombre">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
+                    <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email" placeholder="Descripción">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-users"></i></span>
+                    <input type="text" class="form-control" id="rol" required [(ngModel)]="user.rol" name="rol" placeholder="rol">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success"> <i class="fas fa-save"></i> Guardar</button>
+                <a routerLink="/user" class="btn btn-primary">Atras</a>
+            </form>
+        </div>
+    </div>
+</div>
