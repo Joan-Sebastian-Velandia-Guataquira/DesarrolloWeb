@@ -14,7 +14,7 @@ import {LocalStorageService } from './../../core/services/localStorage/local-sto
 })
 export class LipsComponent implements OnInit {
 
-  LipsProducts : Product []=[];
+  LipsProducts: Product [] = [];
 
   constructor(
     private localStorage: LocalStorageService,
@@ -30,7 +30,7 @@ export class LipsComponent implements OnInit {
     this.LipsProducts = this.localStorage.getLipsProducts();
   }
 
-  deleteProductLip(item: Product) {
+  deleteProductLip(item: Product): void {
 
     this.localStorage.deleteProductLips(item);
   }
@@ -38,7 +38,8 @@ export class LipsComponent implements OnInit {
   update(item: Product): void
   {
     const currentUser = this.localStorage.getItem('CURRENT_USER') as User;
-    const route = '/admin/' + currentUser.nickName + '/lips/' + item.id
+    const route = '/admin/' + currentUser.nickName + '/update/';
+    console.log(route + item.id);
     this.route.navigate([route + item.id]);
   }
 }
