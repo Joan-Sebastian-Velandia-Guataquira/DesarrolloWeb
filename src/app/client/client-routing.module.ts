@@ -15,7 +15,7 @@ const routes: Routes = [
     path: '',
     component: ClientComponent,
     children: [
-      
+
       {
         path: 'eyes',
         component: EyesComponent
@@ -48,8 +48,6 @@ const routes: Routes = [
         path: '**',
         redirectTo: ''
       },
-      
-    
     ]
   }
 ];

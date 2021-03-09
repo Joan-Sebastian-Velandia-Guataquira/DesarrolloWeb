@@ -10,6 +10,7 @@ import {LocalStorageService } from './../../core/services/localStorage/local-sto
 export class LipsComponent implements OnInit {
 
   lipsProducts: Product[] = [];
+  client = false;
 
   constructor( private localStorage: LocalStorageService
     ) { }
@@ -18,9 +19,14 @@ export class LipsComponent implements OnInit {
     this.loadProducts();
   }
 
+
   loadProducts(): void
   {
     this.lipsProducts = this.localStorage.getLipsProducts();
+    if (this.localStorage.getItem('CURRENT_USER') !== null)
+    {
+      this.client = true;
+    }
   }
 
 }

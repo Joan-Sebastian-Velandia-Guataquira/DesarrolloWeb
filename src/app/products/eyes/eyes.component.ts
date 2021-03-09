@@ -10,7 +10,7 @@ import {LocalStorageService } from './../../core/services/localStorage/local-sto
 export class EyesComponent implements OnInit {
 
   eyesProducts: Product[] = [];
-  /* *isLogin: boolean; */
+  client = false;
 
   constructor(
     private localStorage: LocalStorageService
@@ -23,5 +23,9 @@ export class EyesComponent implements OnInit {
   loadProducts(): void
   {
     this.eyesProducts = this.localStorage.getEyesProducts();
+    if (this.localStorage.getItem('CURRENT_USER') !== null)
+    {
+      this.client = true;
+    }
   }
 }

@@ -10,6 +10,7 @@ import {LocalStorageService } from './../../core/services/localStorage/local-sto
 export class FaceComponent implements OnInit {
 
   faceProducts: Product[] = [];
+  client = false;
 
   constructor(private localStorage: LocalStorageService) {
   }
@@ -21,6 +22,10 @@ export class FaceComponent implements OnInit {
   loadProducts(): void
   {
     this.faceProducts = this.localStorage.getFaceProducts();
+    if (this.localStorage.getItem('CURRENT_USER') !== null)
+    {
+      this.client = true;
+    }
   }
 
 }

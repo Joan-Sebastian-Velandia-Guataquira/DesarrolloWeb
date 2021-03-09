@@ -23,8 +23,15 @@
         </a>
       </div>
       <div class="media-body">
-        <div class="clearfix" *ngIf="">
-          <p class="pull-right"><a href="#" class="btn btn-success btn-sm ad-click-event fas fa-shopping-cart">Comprar</a></p>
+        <div class="clearfix" *ngIf="client">
+          <p class="pull-right">
+            <a href="#"
+              class="btn btn-success btn-sm ad-click-event fas fa-shopping-cart">
+              Comprar</a>
+            <a href="#" class="btn btn-success btn-sm ad-click-event fas fa-shopping-cart">
+              añadir al carrito
+            </a>
+          </p>
         </div>
         <h4 style="margin-top: 0">
           Producto con envio ─ {{ item.price | currency }}
