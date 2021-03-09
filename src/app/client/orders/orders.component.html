@@ -16,7 +16,13 @@
               <tr>
                 <td>{{currentOrder.date}}</td>
                 <td>{{currentOrder.total | currency}}</td>
-                <td><button type="button" class="btn btn-block btn-danger" [routerLink]="['detailOrder']" >Ver</button></td>
+                <td>
+                  <a [routerLink]="['detailOrder', i]">
+                    <button type="button" class="btn btn-block btn-danger">
+                      Ver
+                    </button>
+                  </a>
+                </td>
               </tr>
             </table>
           </div>

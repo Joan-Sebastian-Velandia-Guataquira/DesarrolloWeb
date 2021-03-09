@@ -17,6 +17,18 @@ const routes: Routes = [
     component: ClientComponent,
     children: [
       {
+        path: 'detailOrder/:id',
+        component: DetailorderComponent,
+      },
+      {
+        path: 'detailOrder',
+        component: DetailorderComponent,
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent
+      },
+      {
         path: 'eyes',
         component: EyesComponent
       },
@@ -39,14 +51,6 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent
-      },
-      {
-        path: 'orders',
-        component: OrdersComponent
-      },
-      {
-        path: 'detailOrder',
-        component: DetailorderComponent
       }
     ]
   }

@@ -14,6 +14,7 @@ import { Order } from '../../models/order/order.model';
   providedIn: 'root',
 })
 export class LocalStorageService {
+
   lipsProducts: Product[] = [];
   faceProducts: Product[] = [];
   eyesProducts: Product[] = [];
@@ -30,6 +31,7 @@ export class LocalStorageService {
     if (this.eyesProducts.length === 0) {
       this.eyesProducts = dataEyes as Product[];
     }
+    console.log('there are ' + this.eyesProducts.length + ' eyes products');
     return this.eyesProducts;
   }
 
@@ -54,6 +56,10 @@ export class LocalStorageService {
       this.orders = dataOrders as Order[];
     }
     return this.orders;
+  }
+
+  addOrder(currentOrder: Order): void {
+    this.orders.push(currentOrder);
   }
 
   getUsers(): User[] {
@@ -81,5 +87,9 @@ export class LocalStorageService {
     } else {
       return null;
     }
+  }
+
+  setItem(key: string, val: any): void {
+    localStorage.setItem(key, JSON.stringify(val));
   }
 }

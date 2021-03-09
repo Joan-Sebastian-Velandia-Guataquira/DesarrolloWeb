@@ -36,7 +36,7 @@ export class AddComponent implements OnInit {
   }
 
 
-  updateEye(): void {
+/*   updateEye(): void {
     this.submitted = false;
     this.ProductosEyes = JSON.parse(localStorage.getItem('currentProduct')!);
     localStorage.clear();
@@ -60,6 +60,6 @@ export class AddComponent implements OnInit {
     this.ProductsFace.push(this.user);
     localStorage.setItem('currentProduct', JSON.stringify(this.ProductosFace));
     this.currentProduct = new Product();
-  }
+  } */
 
 }
