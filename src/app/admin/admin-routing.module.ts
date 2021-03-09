@@ -32,6 +32,10 @@ const routes: Routes = [
       {
         path: 'update/:id',
         component: UpdateComponent
+      },
+      {
+        path: 'add',
+        component: AddComponent
       }
     ]
   }

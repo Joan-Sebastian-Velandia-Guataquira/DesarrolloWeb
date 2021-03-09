@@ -7,26 +7,21 @@ import { LocalStorageService } from 'src/app/core/services/localStorage/local-st
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-
   cart: Product[] = [];
   amoutCarts = -1;
 
-  constructor(
-    private localStorageService: LocalStorageService
-  ) { }
+  constructor(private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
     this.loadProducts();
   }
 
-  loadProducts(): void
-  {
+  loadProducts(): void {
     let amoutCarts: number;
-    if (this.localStorageService.getItem('amoutCarts') !== null)
-    {
+    if (this.localStorageService.getItem('amoutCarts') !== null) {
       let key: string;
       let carts: Product[] = [];
       amoutCarts = this.localStorageService.getItem('amoutCarts') as number;
@@ -34,19 +29,19 @@ export class CartComponent implements OnInit {
       carts = this.localStorageService.getItem(key) as Product[];
       this.cart = carts;
       this.amoutCarts = amoutCarts;
-    }else{
+    } else {
       this.amoutCarts = -1;
     }
   }
-  buy(products: Product[]): void {
 
-    const buyer: User = this.localStorageService.getItem('CURRENT_USER') as User;
+  buy(products: Product[]): void {
+    const buyer: User = this.localStorageService.getItem(
+      'CURRENT_USER'
+    ) as User;
     let amoutOrders: number;
-    if (this.localStorageService.getItem('amoutOrders') !== null)
-    {
+    if (this.localStorageService.getItem('amoutOrders') !== null) {
       amoutOrders = this.localStorageService.getItem('amoutOrders') as number;
-    }else
-    {
+    } else {
       amoutOrders = 0;
     }
     const date = new Date().toDateString();
@@ -54,20 +49,18 @@ export class CartComponent implements OnInit {
     const newOrder: Order = new Order(buyer.nickName, date, this.cart, total);
     this.localStorageService.setItem('order' + amoutOrders, newOrder);
     amoutOrders = Number(amoutOrders) + Number(1);
-    this.localStorageService.setItem('amoutOrders', String(amoutOrders) );
+    this.localStorageService.setItem('amoutOrders', String(amoutOrders));
     this.cancelBuy();
-
   }
   total(): number {
     let tot = 0;
-    for(const prod of this.cart)
-    {
+    for (const prod of this.cart) {
       tot = Number(tot) + Number(prod.price);
     }
     return tot;
   }
 
-  cancelBuy(): void{
+  cancelBuy(): void {
     this.cart = [];
     this.localStorageService.clearCart();
     this.loadProducts();
