@@ -6,6 +6,7 @@ import { LipsComponent } from './lips/lips.component';
 import { EyesComponent } from './eyes/eyes.component';
 import { FaceComponent } from './face/face.component';
 import { AddComponent } from './add/add.component';
+import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'reports',
         component: ReportsComponent
+      },
+      {
+        path: 'update/:id',
+        component: UpdateComponent
       }
     ]
   }

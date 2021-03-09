@@ -15,6 +15,7 @@ import { Order } from '../../models/order/order.model';
 })
 export class LocalStorageService {
 
+
   lipsProducts: Product[] = [];
   faceProducts: Product[] = [];
   eyesProducts: Product[] = [];
@@ -121,5 +122,48 @@ export class LocalStorageService {
   logOut(): void {
     localStorage.clear();
   }
+
+  deleteProductEye(eyes: Product): void {
+    console.log(this.eyesProducts);
+    for( let i =0; i<this.eyesProducts.length; i++)
+    {
+      if(this.eyesProducts[i]===eyes){
+        this.eyesProducts.splice(i, 1);
+      }
+    }
+    console.log(this.eyesProducts);
+  }
+
+  deleteProductFace(face: Product): void {
+    console.log(this.faceProducts);
+    for( let i =0; i<this.faceProducts.length; i++)
+    {
+      if(this.faceProducts[i]===face){
+        this.faceProducts.splice(i, 1);
+      }
+    }
+    console.log(this.faceProducts);
+  }
+
+  deleteProductLips(lip: Product): void {
+    console.log(this.lipsProducts);
+    for( let i =0; i<this.lipsProducts.length; i++)
+    {
+      if(this.lipsProducts[i]===lip){
+        this.lipsProducts.splice(i, 1);
+      }
+    }
+    console.log(this.lipsProducts);
+  }
+
+  updateProductFace(face: Product): void {
+    for( let i =0; i<this.faceProducts.length; i++)
+    {
+      if(this.faceProducts[i].id === face.id){
+        this.faceProducts.splice(i, 1, face)
+      }
+    }
+  }
+
 
 }

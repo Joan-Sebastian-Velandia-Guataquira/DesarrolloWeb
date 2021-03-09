@@ -23,4 +23,14 @@ export class FaceComponent implements OnInit {
   {
     this.FaceProducts = this.localStorage.getFaceProducts();
   }
+
+  deleteProductFace(item: Product): void{
+    this.localStorage.deleteProductFace(item);
+  }
+
+  updateProductFace(item: Product): void{
+    this.localStorage.updateProductFace(item);
+    const copia: Product = item;
+  }
+
 }

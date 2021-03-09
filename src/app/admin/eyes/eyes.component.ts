@@ -25,9 +25,10 @@ export class EyesComponent implements OnInit {
     this.EyesProducts = this.localStorage.getEyesProducts();
   }
 
-  deleteProduct(id: number) {
-    this.eyes = JSON.parse(localStorage.getEyes)
-
+  deleteProductEye(item: Product) {
+    this.localStorage.deleteProductEye(item);
   }
+
+
 
 }

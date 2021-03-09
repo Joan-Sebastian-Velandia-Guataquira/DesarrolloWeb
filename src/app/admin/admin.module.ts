@@ -12,6 +12,7 @@ import { EyesComponent } from './eyes/eyes.component';
 import { FaceComponent } from './face/face.component';
 import { LipsComponent } from './lips/lips.component';
 import { AddComponent } from './add/add.component';
+import { UpdateComponent } from './update/update.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AddComponent } from './add/add.component';
     FaceComponent,
     LipsComponent,
     AddComponent,
+    UpdateComponent,
     ],
   imports: [
     CommonModule,
