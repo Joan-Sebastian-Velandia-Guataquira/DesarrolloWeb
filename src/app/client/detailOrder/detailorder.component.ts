@@ -17,7 +17,7 @@ export class DetailorderComponent implements OnInit {
   productsOrder: Product[] = [];
 
   constructor(
-    private localStorage: LocalStorageService,
+    private localStorageService: LocalStorageService,
     private route: ActivatedRoute,
     private ordersService: OrdersService
   ) { }
@@ -27,15 +27,32 @@ export class DetailorderComponent implements OnInit {
   }
 
   showDetailProduct(): void{
-    const user = this.localStorage.getItem('CURRENT_USER') as User;
+    const user = this.localStorageService.getItem('CURRENT_USER') as User;
     const productID = this.route.snapshot.paramMap.get('id');
     this.orders = this.ordersService.getOrders(user);
-    console.log(this.orders.length);
+    this.loadOrders();
+    console.log('readed: ' + this.orders.length + ' ordes');
     for (let i = 0; i < this.orders.length; i++) {
       if (i === Number(productID) )
       {
         this.productsOrder = this.orders[i].products;
         break;
+      }
+    }
+  }
+
+  loadOrders(): void {
+    if (this.localStorageService.getItem('amoutOrders') !== null) {
+      let key: string;
+      let currentOrder: Order;
+      const sized: number = this.localStorageService.getItem(
+        'amoutOrders'
+      ) as number;
+      for (let i = 0; i < sized; i++) {
+        key = 'order' + i;
+        console.log(key);
+        currentOrder = this.localStorageService.getItem(key) as Order;
+        this.orders.push(currentOrder);
       }
     }
   }

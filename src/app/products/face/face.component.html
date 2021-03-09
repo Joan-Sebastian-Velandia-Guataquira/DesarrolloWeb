@@ -24,11 +24,11 @@
       <div class="media-body">
         <div class="clearfix">
           <p class="pull-right" *ngIf="client">
-            <a href="#" class="btn btn-success btn-sm ad-click-event fas fa-shopping-cart">
+            <a  class="btn btn-success btn-sm ad-click-event fas fa-shopping-cart">
               Comprar</a>
-            <a href="#" class="btn btn-success btn-sm ad-click-event fas fa-shopping-cart">
-              añadir al carrito
-            </a>
+              <a class="btn btn-success btn-sm ad-click-event fas fa-shopping-cart" (click)="addCart(item)">
+                añadir al carrito
+              </a>
           </p>
         </div>
         <h4 style="margin-top: 0">

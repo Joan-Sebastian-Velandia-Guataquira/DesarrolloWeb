@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     }
   }
   setLoginClient(): void {
-    this.router.navigate(['/client/' + this.currentUser.nickName]);
+    this.router.navigate(['/client/' + this.currentUser.nickName + '/lips']);
   }
   setLoginAdmin(): void {
     this.router.navigate(['/admin/' + this.currentUser.nickName]);

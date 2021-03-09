@@ -5,7 +5,6 @@ import { HeaderComponent } from './header/header.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { LogoutComponent } from './logout/logout.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { DetailorderComponent } from './detailOrder/detailorder.component';
@@ -16,7 +15,6 @@ import { DetailorderComponent } from './detailOrder/detailorder.component';
     HeaderComponent,
     MenuComponent,
     FooterComponent,
-    LogoutComponent,
     CartComponent,
     OrdersComponent,
     DetailorderComponent,

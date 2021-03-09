@@ -13,6 +13,7 @@ import { LocalStorageService } from './../../core/services/localStorage/local-st
 export class EyesComponent implements OnInit {
 
   eyesProducts: Product[] = [];
+  carts: Product[] = [];
   client = false;
 
   constructor(
@@ -51,4 +52,22 @@ export class EyesComponent implements OnInit {
     amoutOrders = Number(amoutOrders) + Number(1);
     this.localStorage.setItem('amoutOrders', String(amoutOrders) );
   }
+
+  addCart(product: Product): void
+  {
+    let amoutCarts: number;
+    const buyer: User = this.localStorage.getItem('CURRENT_USER') as User;
+    if (this.localStorage.getItem('amoutCarts') !== null)
+    {
+      amoutCarts = this.localStorage.getItem('amoutCarts') as number;
+    }else
+    {
+      amoutCarts = -1;
+    }
+    this.carts.push(product);
+    amoutCarts = Number(amoutCarts) + Number(1);
+    this.localStorage.setItem('amoutCarts', String(amoutCarts) );
+    this.localStorage.setItem('cart' + amoutCarts, this.carts);
+  }
+
 }

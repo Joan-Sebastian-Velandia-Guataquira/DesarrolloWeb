@@ -7,6 +7,7 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
   providedIn: 'root',
 })
 export class UsersService {
+
   users: User[] = [];
 
   constructor(private localStorage: LocalStorageService) {}
@@ -32,5 +33,9 @@ export class UsersService {
 
   loardUsers(): any {
     this.users = this.localStorage.getUsers();
+  }
+
+  logout(): void {
+    this.localStorage.logOut();
   }
 }

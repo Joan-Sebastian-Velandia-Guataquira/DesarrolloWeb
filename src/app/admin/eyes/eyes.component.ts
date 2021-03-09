@@ -9,7 +9,8 @@ import {LocalStorageService } from './../../core/services/localStorage/local-sto
 })
 export class EyesComponent implements OnInit {
 
-  EyesProducts : Product []=[];
+  EyesProducts: Product [] = [];
+  eyes!: Product;
 
   constructor(
     private localStorage: LocalStorageService)
@@ -23,4 +24,10 @@ export class EyesComponent implements OnInit {
   {
     this.EyesProducts = this.localStorage.getEyesProducts();
   }
+
+  deleteProduct(id: number) {
+    this.eyes = JSON.parse(localStorage.getEyes)
+
+  }
+
 }

@@ -20,4 +20,8 @@ export class OrdersService {
     }
     return ordersFind;
   }
+
+  /* getNewOrders(): Order[] {
+    this.localStorage.getNewOrders();
+  } */
 }

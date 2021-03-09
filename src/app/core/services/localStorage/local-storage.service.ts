@@ -92,4 +92,34 @@ export class LocalStorageService {
   setItem(key: string, val: any): void {
     localStorage.setItem(key, JSON.stringify(val));
   }
+
+  clearCart(): void {
+    const cartSize: number = this.getItem('amoutCarts') as number;
+    let key: string;
+    for (let i = 0; i <= cartSize; i++)
+    {
+      key = 'cart' + String(i);
+      console.log('removiendo: ' + key);
+      localStorage.removeItem(key);
+    }
+    localStorage.removeItem('amoutCarts');
+  }
+
+  getNewOrders(): void {
+    const ordersSize: number = this.getItem('amoutOrders') as number;
+    /* let orders: Order[]; */
+    let key: string;
+    let order: Order;
+    for (let i = 0; i < ordersSize; i++)
+    {
+      key = 'order' + String(i);
+      order = this.getItem(key) as Order;
+      /* orders.push(order); */
+    }
+  }
+
+  logOut(): void {
+    localStorage.clear();
+  }
+
 }

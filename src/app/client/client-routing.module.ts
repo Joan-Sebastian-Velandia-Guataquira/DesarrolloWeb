@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { FaceComponent } from '../products/face/face.component';
 import { EyesComponent } from '../products/eyes/eyes.component';
 import { LipsComponent } from '../products/lips/lips.component';
-import { LogoutComponent } from './logout/logout.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ClientComponent } from './client.component';
@@ -21,20 +20,12 @@ const routes: Routes = [
         component: DetailorderComponent,
       },
       {
-        path: 'detailOrder',
-        component: DetailorderComponent,
-      },
-      {
         path: 'orders',
         component: OrdersComponent
       },
       {
         path: 'eyes',
         component: EyesComponent
-      },
-      {
-        path: 'logout',
-        component: LogoutComponent
       },
       {
         path: 'lips',

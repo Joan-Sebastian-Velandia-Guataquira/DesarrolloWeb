@@ -1,11 +1,16 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/visitor',
+    redirectTo: 'visitor',
     pathMatch: 'full'
+  },
+  {
+    path: 'visitor',
+    loadChildren: () =>
+    import('./visitor/visitor.module').then((m) => m.VisitorModule),
   },
   {
     path: 'visitor',
@@ -21,6 +26,11 @@ const routes: Routes = [
     path: 'client/:client',
     loadChildren: () =>
       import('./client/client.module').then((m) => m.ClientModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'visitor',
+    pathMatch: 'full'
   }
 ];
 
