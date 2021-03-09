@@ -18,7 +18,8 @@ export class LipsComponent implements OnInit {
 
   constructor(
     private localStorage: LocalStorageService,
-    private route: Router)
+    private route: Router
+    )
     { }
 
   ngOnInit(): void {

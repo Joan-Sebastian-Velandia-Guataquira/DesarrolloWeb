@@ -15,7 +15,6 @@ import { Order } from '../../models/order/order.model';
 })
 export class LocalStorageService {
 
-
   lipsProducts: Product[] = [];
   faceProducts: Product[] = [];
   eyesProducts: Product[] = [];
@@ -97,8 +96,7 @@ export class LocalStorageService {
   clearCart(): void {
     const cartSize: number = this.getItem('amoutCarts') as number;
     let key: string;
-    for (let i = 0; i <= cartSize; i++)
-    {
+    for (let i = 0; i <= cartSize; i++) {
       key = 'cart' + String(i);
       console.log('removiendo: ' + key);
       localStorage.removeItem(key);
@@ -111,8 +109,7 @@ export class LocalStorageService {
     /* let orders: Order[]; */
     let key: string;
     let order: Order;
-    for (let i = 0; i < ordersSize; i++)
-    {
+    for (let i = 0; i < ordersSize; i++) {
       key = 'order' + String(i);
       order = this.getItem(key) as Order;
       /* orders.push(order); */
@@ -125,9 +122,8 @@ export class LocalStorageService {
 
   deleteProductEye(eyes: Product): void {
     console.log(this.eyesProducts);
-    for( let i =0; i<this.eyesProducts.length; i++)
-    {
-      if(this.eyesProducts[i]===eyes){
+    for (let i = 0; i < this.eyesProducts.length; i++) {
+      if (this.eyesProducts[i] === eyes) {
         this.eyesProducts.splice(i, 1);
       }
     }
@@ -136,9 +132,8 @@ export class LocalStorageService {
 
   deleteProductFace(face: Product): void {
     console.log(this.faceProducts);
-    for( let i =0; i<this.faceProducts.length; i++)
-    {
-      if(this.faceProducts[i]===face){
+    for (let i = 0; i < this.faceProducts.length; i++) {
+      if (this.faceProducts[i] === face) {
         this.faceProducts.splice(i, 1);
       }
     }
@@ -147,23 +142,47 @@ export class LocalStorageService {
 
   deleteProductLips(lip: Product): void {
     console.log(this.lipsProducts);
-    for( let i =0; i<this.lipsProducts.length; i++)
-    {
-      if(this.lipsProducts[i]===lip){
+    for (let i = 0; i < this.lipsProducts.length; i++) {
+      if (this.lipsProducts[i] === lip) {
         this.lipsProducts.splice(i, 1);
       }
     }
     console.log(this.lipsProducts);
   }
 
-  updateProductFace(face: Product): void {
-    for( let i =0; i<this.faceProducts.length; i++)
+  updateFace(prevProduct: Product, newProduct: Product): void {
+
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.faceProducts.length; i++)
     {
-      if(this.faceProducts[i].id === face.id){
-        this.faceProducts.splice(i, 1, face)
+      if (this.faceProducts[i].id === prevProduct.id)
+      {
+        this.faceProducts.splice(i, 1, newProduct);
       }
     }
   }
 
+  updateLips(prevProduct: Product, newProduct: Product): void {
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.lipsProducts.length; i++)
+    {
+      if (this.lipsProducts[i].id === prevProduct.id)
+      {
+        this.lipsProducts.splice(i, 1, newProduct);
+      }
+    }
+  }
+
+
+  updateEye(prevProduct: Product, newProduct: Product): void {
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.eyesProducts.length; i++)
+    {
+      if (this.eyesProducts[i].id === prevProduct.id)
+      {
+        this.eyesProducts.splice(i, 1, newProduct);
+      }
+    }
+  }
 
 }

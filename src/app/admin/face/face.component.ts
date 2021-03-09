@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/core/models/product/product.model';
+import { User } from 'src/app/core/models/user/user.model';
 import {LocalStorageService } from './../../core/services/localStorage/local-storage.service';
 
 @Component({
@@ -9,10 +11,12 @@ import {LocalStorageService } from './../../core/services/localStorage/local-sto
 })
 export class FaceComponent implements OnInit {
 
-  FaceProducts : Product []=[];
+  FaceProducts: Product [] = [];
 
   constructor(
-    private localStorage: LocalStorageService)
+    private localStorage: LocalStorageService,
+    private route: Router
+    )
     { }
 
   ngOnInit(): void {
@@ -28,9 +32,12 @@ export class FaceComponent implements OnInit {
     this.localStorage.deleteProductFace(item);
   }
 
-  updateProductFace(item: Product): void{
-    this.localStorage.updateProductFace(item);
-    const copia: Product = item;
+  update(item: Product): void
+  {
+    const currentUser = this.localStorage.getItem('CURRENT_USER') as User;
+    const route = '/admin/' + currentUser.nickName + '/update/';
+    console.log(route + item.id);
+    this.route.navigate([route + item.id]);
   }
 
 }

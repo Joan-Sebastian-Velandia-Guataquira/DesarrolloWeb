@@ -30,7 +30,7 @@ const routes: Routes = [
         component: ReportsComponent
       },
       {
-        path: 'update/:id',
+        path: 'update/:product',
         component: UpdateComponent
       },
       {

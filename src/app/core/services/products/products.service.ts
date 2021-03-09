@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { element } from 'protractor';
+import { animationFrameScheduler } from 'rxjs';
 import { Product } from '../../models/product/product.model';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 
@@ -60,7 +60,25 @@ export class ProductsService {
     }
     return produc;
   }
-  change(prevProduct: Product, newProduct: Product): void {
 
+  change(prevProduct: Product, newProduct: Product): void {
+    if (prevProduct.id.includes('EYE')) {
+      this.changeEye(prevProduct, newProduct);
+    } else if (prevProduct.id.includes('LIPS')) {
+      this.changeLip(prevProduct, newProduct);
+    } else {
+      this.changeFace(prevProduct, newProduct);
+    }
+  }
+
+  changeFace(prevProduct: Product, newProduct: Product): void {
+    this.localStrorageService.updateFace(prevProduct, newProduct);
+  }
+  changeLip(prevProduct: Product, newProduct: Product): void {
+    this.localStrorageService.updateLips(prevProduct, newProduct);
+  }
+  changeEye(prevProduct: Product, newProduct: Product): void {
+    this.localStrorageService.updateEye(prevProduct, newProduct);
   }
 }
+

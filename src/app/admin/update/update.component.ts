@@ -21,39 +21,34 @@ export class UpdateComponent implements OnInit {
   loginForm: FormGroup = this.fb.group({
     name: [''],
     price: [''],
-    description: [''],
+    desc: [''],
     img: [''],
   });
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private localStorage: LocalStorageService,
-    private productService: ProductsService
+    private route2: Router,
+    private productService: ProductsService,
+    private localStorageService: LocalStorageService
   ) {}
 
-  ngOnInit(): void {
-    this.loadProducts();
-  }
-
-  loadProducts(): void {
-    this.EyesProducts = this.localStorage.getEyesProducts();
-    this.FaceProducts = this.localStorage.getFaceProducts();
-    this.LipsProducts = this.localStorage.getLipsProducts();
-  }
+  ngOnInit(): void {}
 
   update(): void {
     let newProduct: Product;
+    const name = this.loginForm.controls.name.value;
+    const desc = this.loginForm.controls.desc.value;
     const price = this.loginForm.controls.price.value;
-    const name = this.loginForm.controls.description.value;
-    const desc = this.loginForm.controls.id.value;
-    const img = this.loginForm.controls.img.value;
-    const idPrev = this.route.snapshot.paramMap.get('id') as string;
 
-    newProduct = new Product(idPrev, name, img, price, desc);
-    const prevProduct = this.getPrev(idPrev) as Product;
+    const idPrev = this.route.snapshot.paramMap.get('product') as string;
+    const prevProduct: Product = this.getPrev(idPrev) as Product;
+    newProduct = new Product(idPrev, name, prevProduct.img, price, desc);
 
+    this.currentUser = this.localStorageService.getItem('CURRENT_USER') as User;
     this.productService.change(prevProduct, newProduct);
+
+    this.route2.navigate(['/admin/' + this.currentUser.nickName + '/eyes']);
   }
   getPrev(idPrev: string): Product {
     const productBefore: Product = this.productService.get(idPrev);
