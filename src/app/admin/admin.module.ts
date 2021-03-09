@@ -13,6 +13,11 @@ import { FaceComponent } from './face/face.component';
 import { LipsComponent } from './lips/lips.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -31,7 +36,12 @@ import { UpdateComponent } from './update/update.component';
     ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatIconModule
   ],
 })
 export class AdminModule { }
