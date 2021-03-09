@@ -23,5 +23,20 @@
     "buyer": "OtherClient",
     "date": "05-02-2021",
     "products": ["FACE-10"]
+  },
+  {
+    "buyer": "Client",
+    "date": "05-02-2021",
+    "products": ["EYE-01", "EYE-02", "FACE-01"]
+  },
+  {
+    "buyer": "Client",
+    "date": "05-02-2021",
+    "products": ["EYE-05", "EYE-07", "FACE-05"]
+  },
+  {
+    "buyer": "Client",
+    "date": "05-02-2021",
+    "products": ["LIP-10"]
   }
 ]
